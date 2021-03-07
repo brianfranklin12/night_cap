@@ -3,7 +3,7 @@
   <%= f.text_field :name %> <br>
   <%= f.label :style %>
   <%= f.text_field :style %> <br>
-  <%= f.submit "Create Cocktail" %>
+  <%= f.submit "Create Cocktail" %> <br>
 
   <% if f.object.persisted? %>
     <%= link_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" } %>
