@@ -1,0 +1,11 @@
+<%= form_with model: cocktail do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br>
+  <%= f.label :style %>
+  <%= f.text_field :style %> <br>
+  <%= f.submit "Create Cocktail" %>
+
+  <% if f.object.persisted? %>
+    <%= link_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+<% end %>
