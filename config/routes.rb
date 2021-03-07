@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   post "/signin" => "sessions#create"
 
   delete "/signout" => "sessions#destroy"
-  
+
+  root to: "cocktails#index"
 end
