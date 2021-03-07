@@ -13,6 +13,11 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def destroy
+    current_user.destroy
+    redirect_to signin_path, notice: "#{current_user.username} has been deleted."
+  end
+
   private
 
   def user_params

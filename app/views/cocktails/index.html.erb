@@ -1,4 +1,4 @@
-<h1>Welcome, <%= current_user.username %></h1>
+<h1>Welcome, <%= link_to current_user.username, edit_password_path(current_user) %></h1>
 
 <%= render @cocktails %>
 

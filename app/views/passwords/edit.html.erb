@@ -1,0 +1,14 @@
+<h1>Edit Password</h1>
+
+<%= form_with model: current_user, url: edit_password_path do |f| %>
+  <%= render "shared/form_errors", f: f %>
+  <%= f.label :password %>
+  <%= f.password_field :password %> <br>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %> <br>
+  <%= f.submit "Update Password" %>
+<% end %> <br>
+
+<div>
+  <%= link_to "Delete User", destroy_registration_path(current_user), method: :delete %>
+</div>
