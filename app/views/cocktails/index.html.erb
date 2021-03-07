@@ -1,5 +1,10 @@
-<h1>Welcome, <%= current_user.username %></h1> 
+<h1>Welcome, <%= current_user.username %></h1>
+
+<%= render @cocktails %>
 
 <div>
   <%= button_to "Logout", signout_path, method: :delete %>
+</div>
+<div>
+  <%= link_to "Create a Cocktail", new_cocktail_path %>
 </div>
