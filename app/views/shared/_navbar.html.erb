@@ -1,16 +1,27 @@
 <div class="container mx-auto p-5">
   <nav class="flex justify-start md:justify-between items-center">
     <div class="flex flex-1 items-center justify-between">
-      <a href="#"><img src="logo.svg" alt="Logo" height="87" width="75"/></a>
-      <p id="hamburgerbtn" class="md:hidden bg-purple-800">
-        menu
-      </p>
+      <a href="#" class="flex flex-col items-center">
+        <img src="logo.svg" alt="Logo" height="87" width="80"/>
+        <h1 class="font-header uppercase text-lg pl-2">Night Cap</h1>
+      </a>
+      <svg viewBox="0 0 100 80" width="40" height="40" class="md:hidden fill-current" id="hamburgerbtn">
+        <rect width="100" height="20"></rect>
+        <rect y="30" width="100" height="20"></rect>
+        <rect y="60" width="100" height="20"></rect>
+      </svg>
     </div>
+    
     <ul class="hidden md:flex md:flex-row font-header uppercase tracking-wider text-xl" id="mobileMenu">
+    <% if !current_user %>
+      <li class="pr-5 hover:text-gray-800"><%= link_to "Sign In", signin_path %></li>
+      <li class="pr-5 hover:text-gray-800"><%= link_to "Sign Up", signup_path %></li>
+    <% else %>
       <li class="pr-5 hover:text-gray-800"><a href="#">Services</a></li>
       <li class="pr-5 hover:text-gray-800"><a href="#">Portfolio</a></li>
       <li class="pr-5 hover:text-gray-800"><a href="#">About</a></li>
       <li class="pr-5 hover:text-gray-800"><a href="#">Contact</a></li>
+    <% end %>
     </ul>
   </nav>
 </div>
@@ -28,5 +39,6 @@
 
     hamburger.addEventListener('click', function(){
         mobileMenu.classList.toggle('active');
+        hamburger.display = hidden;
     });
 </script>

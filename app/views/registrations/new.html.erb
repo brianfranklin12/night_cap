@@ -1,17 +1,21 @@
-<h1>Sign Up</h1>
+<div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+  <div class="bg-white px-6 py-8 rounded shadow-2xl text-grey w-full">
+    <h1 class="mb-8 text-3xl text-center font-header">Sign Up</h1>
 
-<%= form_with model: @user, url: signup_path do |f| %>
-  <%= render "shared/form_errors", f: f %>
-  <%= f.label :username %>
-  <%= f.text_field :username %> <br>
-  <%= f.label :email %>
-  <%= f.text_field :email %> <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %> <br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %> <br>
-  <%= f.submit "Sign Up" %>
-<% end %>
-<div>
-  <%= link_to "already signed up? click here to log in!", signin_path %>
+    <%= form_with model: @user, url: signup_path do |f| %>
+      <%= render "shared/form_errors", f: f %>
+      <%= f.label :username, class: "text-xl" %>
+      <%= f.text_field :username, class: "block border border-grey-light w-full p-3 rounded mb-3" %> <br>
+      <%= f.label :email, class: "text-xl" %>
+      <%= f.text_field :email, class: "block border border-grey-light w-full p-3 rounded mb-3" %> <br>
+      <%= f.label :password, class: "text-xl" %>
+      <%= f.password_field :password, class: "block border border-grey-light w-full p-3 rounded mb-3" %> <br>
+      <%= f.label :password_confirmation, class: "text-xl" %>
+      <%= f.password_field :password_confirmation, class: "block border border-grey-light w-full p-3 rounded mb-3" %> <br>
+      <%= f.submit "Sign Up", class: "w-full text-center py-3 rounded bg-red text-white hover:bg-red-dark" %>
+    <% end %>
+    <div class="text-center text-sm text-grey mt-4">
+      <%= link_to "already signed up? click here to log in!", signin_path %>
+    </div>
+  </div>
 </div>
