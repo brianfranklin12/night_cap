@@ -1,0 +1,32 @@
+<div class="container mx-auto p-5">
+  <nav class="flex justify-start md:justify-between items-center">
+    <div class="flex flex-1 items-center justify-between">
+      <a href="#"><img src="logo.svg" alt="Logo" height="87" width="75"/></a>
+      <p id="hamburgerbtn" class="md:hidden bg-purple-800">
+        menu
+      </p>
+    </div>
+    <ul class="hidden md:flex md:flex-row font-header uppercase tracking-wider text-xl" id="mobileMenu">
+      <li class="pr-5 hover:text-gray-800"><a href="#">Services</a></li>
+      <li class="pr-5 hover:text-gray-800"><a href="#">Portfolio</a></li>
+      <li class="pr-5 hover:text-gray-800"><a href="#">About</a></li>
+      <li class="pr-5 hover:text-gray-800"><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<style>
+    .active{
+        display: block;
+    }    
+</style>
+
+<script>
+    let hamburger = document.getElementById('hamburgerbtn');
+
+    let mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', function(){
+        mobileMenu.classList.toggle('active');
+    });
+</script>

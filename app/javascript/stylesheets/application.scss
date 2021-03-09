@@ -1,6 +1,15 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
-// You can add your own custom components/styles here
+.btn {
+  @apply font-bold;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded;
+}
+.btn-red {
+  @apply bg-red;
+  @apply text-white;
+}
 
 @import "tailwindcss/utilities";
