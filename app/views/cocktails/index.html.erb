@@ -1,10 +1,5 @@
-<h1 class="font-header text-6xl tracking-wider text-center">Welcome, <%= link_to current_user.username, edit_password_path(current_user) %></h1>
+<h1 class="font-header text-3xl md:text-6xl tracking-wider text-center mb-8 md:mb-16">Welcome, <%= link_to current_user.username, edit_password_path(current_user) %></h1>
 
-<%= render @cocktails %>
-
-<div>
-  <%= button_to "Logout", signout_path, method: :delete, class: "btn btn-red" %>
-</div>
-<div>
-  <%= link_to "Create a Cocktail", new_cocktail_path %>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+  <%= render @cocktails %>
 </div>

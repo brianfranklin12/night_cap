@@ -1,2 +1,8 @@
-<h1> <%= link_to cocktail.name, cocktail_path(cocktail) %> </h1>
-<h3> <%= cocktail.style %> </h3>
+  <div class="w-64 border mx-auto">
+    <img src="logo.svg" class="w-full" alt="...">
+    <div class="p-4">
+      <h5 class="text-xl text-grey text-center font-header tracking-widest mb-2 uppercase"><%= cocktail.name %></h5>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, rem.</p>
+      <%= link_to "Read more", cocktail_path(cocktail), class: "bg-red hover:bg-red-dark text-white px-4 py-2 inline-block mt-4 rounded" %>
+    </div>
+  </div>
