@@ -8,7 +8,10 @@ module.exports = {
     extend: {
       colors: {
         greyblue: '#99abb0',
-        purple: '#8683a3',
+        purple: {
+          DEFAULT: '#8683a3',
+          dark: '#787592',
+        },
         red: {
           DEFAULT: '#fa7b79',
           dark: '#e16e6c',
