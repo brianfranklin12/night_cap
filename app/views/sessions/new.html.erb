@@ -7,9 +7,9 @@
       <%= f.text_field :email, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
       <%= f.label :password, class: "text-xl" %>
       <%= f.password_field :password, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
-      <%= f.submit "Sign In", class: "w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark mb-2" %>
+      <%= f.submit "Sign In", class: "w-full text-center py-2 rounded bg-red cursor-pointer text-white hover:bg-red-dark mb-2" %>
     <% end %>
-    <%= button_to "Sign in with Twitter", "/auth/twitter", class: "w-full text-center py-2 rounded bg-purple text-white hover:bg-purple-dark" %>
+    <%= button_to "Sign in with Twitter", "/auth/twitter", class: "w-full cursor-pointer text-center py-2 rounded bg-purple text-white hover:bg-purple-dark" %>
 
     <div class="text-center text-sm text-grey mt-4">
       <%= link_to "need to sign up? click here!", signup_path %>
