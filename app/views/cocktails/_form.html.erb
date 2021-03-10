@@ -3,6 +3,8 @@
   <%= f.text_field :name, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.label :style, class: "text-lg" %>
   <%= f.text_field :style, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
+  <%= f.label :description, class: "text-lg" %>
+  <%= f.text_area :description, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.submit "Create Cocktail", class: "w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark mb-4" %> <br>
 
   <% if f.object.persisted? %>
