@@ -9,7 +9,7 @@
       <h1 class="text-4xl md:text-6xl text-center tracking-wider font-header text-grey mt-8 mb-4">Ingredients:</h1>
       <ul class="list-disc">
         <% @cocktail.cocktail_ingredients.each do |ingredient| %>
-          <li class="text-lg"> <%= ingredient.amount %> - <%= ingredient.ingredient.name %> </li>
+          <li class="text-lg ml-6"> <%= ingredient.amount %> - <%= ingredient.ingredient.name %> </li>
         <% end %>
       </ul>
     </div>
