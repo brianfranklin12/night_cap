@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_153042) do
+ActiveRecord::Schema.define(version: 2021_03_10_160206) do
 
   create_table "cocktail_ingredients", force: :cascade do |t|
     t.integer "cocktail_id", null: false
     t.integer "ingredient_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "amount"
     t.index ["cocktail_id"], name: "index_cocktail_ingredients_on_cocktail_id"
     t.index ["ingredient_id"], name: "index_cocktail_ingredients_on_ingredient_id"
   end
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_03_10_153042) do
     t.integer "ingredient_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "amount"
     t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
     t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
   end
