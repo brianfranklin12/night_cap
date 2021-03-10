@@ -1,4 +1,17 @@
-<%= render @cocktail %>
-
-<%= link_to "Edit Cocktail", edit_cocktail_path %> <br>
-<%= link_to "Back to Collection", cocktails_path %>
+<div class="container max-w-6xl border mx-auto p-8 rounded shadow-md">
+  <div class="grid md:grid-cols-3 items-center">
+    <img src="/logo.svg">
+    <div class="col-span-2">
+      <h1 class="text-6xl md:text-8xl  tracking-wider text-center font-header mb-8"><%= @cocktail.name %></h1>
+      <p class="mx-4 text-xl md:text-3xl text-center md:text-right"><%= @cocktail.description %></p>
+    </div>
+    <div>
+      <h1 class="text-4xl md:text-6xl text-center tracking-wider font-header text-grey mt-8 mb-4">Ingredients:</h1>
+      <ul class="list-disc">
+        <% @cocktail.cocktail_ingredients.each do |ingredient| %>
+          <li class="text-lg"> <%= ingredient.amount %> - <%= ingredient.ingredient.name %> </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
