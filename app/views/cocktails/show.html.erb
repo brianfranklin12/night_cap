@@ -1,8 +1,8 @@
-<div class="container max-w-6xl border mx-auto p-8 rounded shadow-md">
-  <div class="grid md:grid-cols-3 items-center">
-    <img src="/logo.svg">
+<div class="md:container md:mx-auto border p-8 rounded shadow-md">
+  <div class="grid md:grid-cols-3 place-content-center">
+    <img src="/logo.svg" class="object-contain object-center">
     <div class="col-span-2">
-      <h1 class="text-6xl md:text-8xl  tracking-wider text-center font-header mb-8"><%= @cocktail.name %></h1>
+      <h1 class="text-6xl md:text-8xl tracking-wider text-center font-header mb-8"><%= @cocktail.name %></h1>
       <p class="mx-4 text-xl md:text-3xl text-center md:text-right"><%= @cocktail.description %></p>
     </div>
     <div>
