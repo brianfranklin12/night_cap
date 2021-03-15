@@ -5,9 +5,14 @@
   <%= f.text_field :style, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.label :description, class: "text-lg" %>
   <%= f.text_area :description, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
-  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
   <%= f.fields_for :ingredients, cocktail.ingredients.build do |ingredient_fields| %>
-    <%= ingredient_fields.text_field :name %>
+    <%= ingredient_fields.label :name %>
+    <%= ingredient_fields.text_field :name, list: "ingredients_autocomplete", class: "block border border-grey-light w-full p-2 rounded mb-2" %>
+      <datalist id="ingredients_autocomplete">
+        <% Ingredient.all.each do |ingredient| %>
+          <option value="<%= ingredient.name %>">
+        <% end %>
+      </datalist>
   <% end %>
   <%= f.submit class: "w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark mb-4" %> <br>
 
