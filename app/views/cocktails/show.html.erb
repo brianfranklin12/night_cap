@@ -1,11 +1,11 @@
 <div class="md:container md:mx-auto border p-8 rounded shadow-md">
-  <div class="grid md:grid-cols-3 place-content-center">
-    <img src="/logo.svg" class="object-contain object-center">
+  <div class="grid grid-cols-1 md:grid-cols-3 items-center">
+    <img src="/logo.svg" class="max-w-md mb-6 md:mb-0">
     <div class="col-span-2">
       <h1 class="text-6xl md:text-8xl tracking-wider text-center font-header mb-8"><%= @cocktail.name %></h1>
       <p class="mx-4 text-xl md:text-3xl text-center md:text-right"><%= @cocktail.description %></p>
     </div>
-    <div>
+    <div class="text-center">
       <h1 class="text-4xl md:text-6xl text-center tracking-wider font-header text-grey mt-8 mb-4">Ingredients:</h1>
       <ul class="list-disc">
         <% @cocktail.cocktail_ingredients.each do |ingredient| %>
