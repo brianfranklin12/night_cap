@@ -1,7 +1,7 @@
-<div class="nested-fields">
+<div class="nested-fields border-2 border-purple px-2 py-4 mt-4 rounded-xl">
   <div>
     <%= f.label :amount, class: "text-lg" %>
-    <%= f.text_field :amount, class: "block border border-grey-light w-full p-2 rounded mb-2" %>
+    <%= f.text_field :amount, class: "block border border-grey-light w-1/3 p-2 rounded mb-2" %>
   </div>
 
   <div>
@@ -9,5 +9,5 @@
       <%= render "ingredient_fields", f: ingredient %>
     <% end %>
   </div>
-  <%= link_to_remove_association "remove ingredient", f %>
+  <%= link_to_remove_association "Remove Ingredient", f, class: "block w-1/3 bg-transparent hover:bg-pink text-pink-dark font-semibold hover:text-white text-xs hover:boder-transparent border border-pink py-2 text-center cursor-pointer rounded mt-4" %>
 </div>

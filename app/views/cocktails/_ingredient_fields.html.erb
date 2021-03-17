@@ -1,5 +1,5 @@
 <div>
-  <%= f.label :name, class: "text-lg" %>
+  <%= f.label :name %>
   <%= f.text_field :name, list: "ingredients_autocomplete", class: "block border border-grey-light w-full p-2 rounded mb-2" %>
     <datalist id="ingredients_autocomplete">
       <% Ingredient.all.each do |ingredient| %>
