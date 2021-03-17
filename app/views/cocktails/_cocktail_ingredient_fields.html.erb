@@ -1,0 +1,13 @@
+<div class="nested-fields">
+  <div>
+    <%= f.label :amount, class: "text-lg" %>
+    <%= f.text_field :amount, class: "block border border-grey-light w-full p-2 rounded mb-2" %>
+  </div>
+
+  <div>
+    <%= f.fields_for :ingredient do |ingredient| %>
+      <%= render "ingredient_fields", f: ingredient %>
+    <% end %>
+  </div>
+  <%= link_to_remove_association "remove ingredient", f %>
+</div>

@@ -10,28 +10,20 @@
 
   <%# nested form for cocktail_ingredient amount %>
   <h2 class="text-2xl text-center font-header">Ingredients</h2>
-  <%= f.fields_for :cocktail_ingredients, cocktail.cocktail_ingredients.build do |cocktail_ingredient_form| %>
-    <%= cocktail_ingredient_form.label :amount %>
-    <%= cocktail_ingredient_form.text_field :amount, class: "block border border-grey-light w-full p-2 rounded mb-2" %>
-
-    <%# another nest layer to grab ingredient name %>
-    <%= cocktail_ingredient_form.fields_for :ingredient, cocktail.cocktail_ingredients.build.build_ingredient do |ingredient_form| %>
-      <%= ingredient_form.label :name %>
-      <%= ingredient_form.text_field :name, list: "ingredients_autocomplete", class: "block border border-grey-light w-full p-2 rounded mb-2" %>
-        <datalist id="ingredients_autocomplete">
-          <% Ingredient.all.each do |ingredient| %>
-            <option value="<%= ingredient.name %>">
-          <% end %>
-        </datalist>
-      <% end %>
-
-  <% end %>
+  <div id="cocktailIngredients">
+    <%= f.fields_for :cocktail_ingredients do |cocktail_ingredient_form| %>
+      <%= render "cocktail_ingredient_fields", f: cocktail_ingredient_form %>
+    <% end %>
+    <div class="links text-center my-4">
+      <%= link_to_add_association 'Add Ingredient', f, :cocktail_ingredients, wrap_object: Proc.new { |cocktail_ingredient| cocktail_ingredient.build_ingredient; cocktail_ingredient }, class: "block w-full bg-yellow hover:bg-yellow-dark text-grey-dark py-2 cursor-pointer tracking-wide" %>
+    </div>
+  </div>
       
-  <%= f.submit class: "w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark mb-4" %> <br>
+  <%= f.submit class: "w-full text-center py-4 rounded bg-red text-white hover:bg-red-dark mb-4 cursor-pointer text-2xl tracking-wider" %> <br>
 
   <%# creates a 'delete' button on the edit cocktail form page %>
   <% if f.object.persisted? %>
-    <%= link_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" }, class: "w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark" %>
+    <%= link_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" }, class: "block w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark cursor-pointer" %>
   <% end %>
 <% end %>
 
