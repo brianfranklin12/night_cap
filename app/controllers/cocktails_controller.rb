@@ -1,7 +1,7 @@
 class CocktailsController < ApplicationController
   before_action :require_user_logged_in!
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @cocktails = current_user.cocktails
   end
@@ -42,7 +42,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :style, :description, ingredients_attributes: [:name])
+    params.require(:cocktail).permit(:name, :style, :description, cocktail_ingredients_attributes: [:amount, ingredient_attributes: [:name]])
   end
 
   def set_cocktail 

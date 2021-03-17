@@ -1,22 +1,37 @@
 <%= form_with model: cocktail do |f| %>
+
+  <%# General coctail recipe info %>
   <%= f.label :name, class: "text-lg" %>
   <%= f.text_field :name, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.label :style, class: "text-lg" %>
   <%= f.text_field :style, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.label :description, class: "text-lg" %>
   <%= f.text_area :description, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
-  <%= f.fields_for :ingredients, cocktail.ingredients.build do |ingredient_fields| %>
-    <%= ingredient_fields.label :name %>
-    <%= ingredient_fields.text_field :name, list: "ingredients_autocomplete", class: "block border border-grey-light w-full p-2 rounded mb-2" %>
-      <datalist id="ingredients_autocomplete">
-        <% Ingredient.all.each do |ingredient| %>
-          <option value="<%= ingredient.name %>">
-        <% end %>
-      </datalist>
+
+  <%# nested form for cocktail_ingredient amount %>
+  <h2 class="text-2xl text-center font-header">Ingredients</h2>
+  <%= f.fields_for :cocktail_ingredients, cocktail.cocktail_ingredients.build do |cocktail_ingredient_form| %>
+    <%= cocktail_ingredient_form.label :amount %>
+    <%= cocktail_ingredient_form.text_field :amount, class: "block border border-grey-light w-full p-2 rounded mb-2" %>
+
+    <%# another nest layer to grab ingredient name %>
+    <%= cocktail_ingredient_form.fields_for :ingredient, cocktail.cocktail_ingredients.build.build_ingredient do |ingredient_form| %>
+      <%= ingredient_form.label :name %>
+      <%= ingredient_form.text_field :name, list: "ingredients_autocomplete", class: "block border border-grey-light w-full p-2 rounded mb-2" %>
+        <datalist id="ingredients_autocomplete">
+          <% Ingredient.all.each do |ingredient| %>
+            <option value="<%= ingredient.name %>">
+          <% end %>
+        </datalist>
+      <% end %>
+
   <% end %>
+      
   <%= f.submit class: "w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark mb-4" %> <br>
 
+  <%# creates a 'delete' button on the edit cocktail form page %>
   <% if f.object.persisted? %>
     <%= link_to "Delete", f.object, method: :delete, data: { confirm: "Are you sure?" }, class: "w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark" %>
   <% end %>
 <% end %>
+
