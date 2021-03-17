@@ -16,9 +16,18 @@ module.exports = {
           DEFAULT: '#fa7b79',
           dark: '#e16e6c',
         },
-        yellow: '#ffdfb5',
-        pink: '#fcbdbc',
-        grey: '#4d4d4d',
+        yellow: {
+          DEFAULT: '#ffdfb5',
+          dark: '#e5c8a2',
+        },
+        pink: {
+          DEFAULT: '#fcbdbc',
+          dark: '#e2aaa9',
+        },
+        grey: {
+          DEFAULT: '#4d4d4d',
+          dark: '#454545',
+        },
       },
     },
   },
