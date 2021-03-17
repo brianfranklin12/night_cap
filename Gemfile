@@ -25,6 +25,7 @@ gem "omniauth-rails_csrf_protection"
 gem "omniauth"
 gem "omniauth-twitter"
 gem "dotenv-rails"
+gem 'cocoon'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -13,3 +13,6 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require("stylesheets/application.scss")
+
+require("jquery")
+require("@nathanvda/cocoon")
