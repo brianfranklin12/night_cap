@@ -12,6 +12,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = current_user.cocktails.new(cocktail_params)
+    binding.irb
     if @cocktail.save
       redirect_to cocktails_path, notice: "Cocktail was added to your collection"
     else
