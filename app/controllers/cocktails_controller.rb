@@ -3,7 +3,11 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cocktails = current_user.cocktails
+    if params[:ingredient_id]
+      @cocktails = Ingredient.find(params[:ingredient_id]).cocktails
+    else
+      @cocktails = current_user.cocktails
+    end
   end
 
   def new

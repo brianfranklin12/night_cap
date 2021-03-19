@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   delete "/signout" => "sessions#destroy"
   
 
-  resources :cocktails do
-    resources :ingredients 
+  resources :ingredients, only: [:show] do 
+    resources :cocktails, only: [:show, :index]
   end
 
+  resources :cocktails 
   resources :ingredients
 
   root to: "cocktails#index"
