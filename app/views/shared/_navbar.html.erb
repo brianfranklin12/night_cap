@@ -18,6 +18,7 @@
       <li class="pr-5 hover:text-gray-800"><%= link_to "Sign Up", signup_path %></li>
     <% else %>
     <li class="pr-5 hover:text-gray-800"><%= link_to "Create Cocktail", new_cocktail_path %></li>
+      <li class="pr-5 hover:text-gray-800"><%= link_to "View Ingredient List", ingredients_path %></li>
       <li class="pr-5 hover:text-gray-800"><%= link_to "Log Out", signout_path, method: :delete %></li>
     <% end %>
     </ul>
