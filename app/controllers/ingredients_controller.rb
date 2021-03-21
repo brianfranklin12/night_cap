@@ -1,6 +1,7 @@
 class IngredientsController < ApplicationController
   before_action :require_user_logged_in!
   before_action :find_user_ingredients
+  before_action :set_ingredient, only: :show
 
   def index
   end
@@ -15,6 +16,10 @@ class IngredientsController < ApplicationController
         end
       end
       @ingredients
+    end
+
+    def set_ingredient
+      @ingredient = Ingredient.find(params[:id]) if @ingredients.include? Ingredient.find(params[:id])
     end
     
 end
