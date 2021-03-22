@@ -32,7 +32,7 @@ class CocktailsController < ApplicationController
 
   def update
     if @cocktail.update(cocktail_params)
-      redirect_to cocktails_path, notice: "Cocktail was updated successfully"
+      redirect_to cocktail_path(@cocktail), notice: "Cocktail was updated successfully"
     else
       render :edit
     end
