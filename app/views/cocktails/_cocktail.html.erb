@@ -3,7 +3,8 @@
   <a href="<%= cocktail_path(cocktail) %>">
   <img src="/logo.svg" class="w-full mx-auto" alt="...">
   <div class="mt-2">
-    <h5 class="text-xl text-grey text-center font-header tracking-widest mb-2 uppercase"><%= cocktail.name %></h5>
+    <h5 class="text-xl text-grey text-center font-header tracking-widest uppercase"><%= cocktail.name %></h5>
+    <h6 class="text-lg text-grey text-center font-header tracking-wide mb-2">by <%= cocktail.user.username %></h6>
     <p class="line-clamp-3"><%= cocktail.description %></p>
   </div>
   </a>
