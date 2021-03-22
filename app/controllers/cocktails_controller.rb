@@ -6,6 +6,9 @@ class CocktailsController < ApplicationController
     if params[:user_id]
       @user = User.find(params[:user_id])
       @cocktails = @user.cocktails
+    elsif params[:ingredient_id]
+      ingredient = Ingredient.find(params[:ingredient_id])
+      @cocktails = ingredient.cocktails
     else
       @cocktails = Cocktail.all 
     end
