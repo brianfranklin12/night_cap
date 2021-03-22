@@ -3,10 +3,11 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
 
   def index
-    if params[:ingredient_id]
-      @cocktails = Ingredient.find(params[:ingredient_id]).cocktails
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @cocktails = @user.cocktails
     else
-      @cocktails = current_user.cocktails
+      @cocktails = Cocktail.all 
     end
   end
 
@@ -16,7 +17,6 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = current_user.cocktails.new(cocktail_params)
-    binding.irb
     if @cocktail.save
       redirect_to cocktails_path, notice: "Cocktail was added to your collection"
     else
@@ -50,7 +50,7 @@ class CocktailsController < ApplicationController
   end
 
   def set_cocktail 
-    @cocktail = current_user.cocktails.find(params[:id])
+    @cocktail = Cocktail.find(params[:id])
   end
 
 

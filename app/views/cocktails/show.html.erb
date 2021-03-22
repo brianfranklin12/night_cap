@@ -2,7 +2,8 @@
   <div class="grid grid-cols-1 md:grid-cols-3 items-center justify-items-center">
     <img src="/logo.svg" class="w-36 md:w-52 mb-6 md:mb-0">
     <div class="col-span-2">
-      <h1 class="text-6xl md:text-8xl tracking-wider text-center font-header mb-8"><%= @cocktail.name %></h1>
+      <h1 class="text-6xl md:text-8xl tracking-wider text-center font-header mb-4"><%= @cocktail.name %></h1>
+      <h3 class="text-3xl md:text-4xl tracking-wide text-center font-header mb-8">by <%= @cocktail.user.username %></h3>
       <p class="mx-4 text-md md:text-xl text-center md:text-right"><%= @cocktail.description %></p>
     </div>
     <div class="text-center">
