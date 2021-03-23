@@ -21,7 +21,10 @@ Rails.application.routes.draw do
     resources :cocktails, only: [:show, :index]
   end
 
-  resources :cocktails 
+  resources :cocktails do
+    resources :likes
+  end
+  
   resources :ingredients
 
   root to: "cocktails#index"

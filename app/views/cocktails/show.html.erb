@@ -24,3 +24,10 @@
     </div>
   </div>
 </div>
+
+<% pre_like = @cocktail.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', cocktail_like_path(@cocktail, pre_like), method: :delete %>
+<% else %>
+  <%= button_to 'Like', cocktail_likes_path(@cocktail), method: :post %>
+<% end %>
