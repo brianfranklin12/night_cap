@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_235003) do
+ActiveRecord::Schema.define(version: 2021_03_23_003600) do
 
   create_table "cocktail_ingredients", force: :cascade do |t|
     t.integer "cocktail_id", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2021_03_22_235003) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
     t.index ["user_id"], name: "index_cocktails_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "body"
+    t.integer "cocktail_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cocktail_id"], name: "index_comments_on_cocktail_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -68,6 +78,8 @@ ActiveRecord::Schema.define(version: 2021_03_22_235003) do
   add_foreign_key "cocktail_ingredients", "cocktails"
   add_foreign_key "cocktail_ingredients", "ingredients"
   add_foreign_key "cocktails", "users"
+  add_foreign_key "comments", "cocktails"
+  add_foreign_key "comments", "users"
   add_foreign_key "likes", "cocktails"
   add_foreign_key "likes", "users"
   add_foreign_key "recipe_ingredients", "ingredients"
