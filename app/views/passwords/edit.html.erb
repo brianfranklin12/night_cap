@@ -1,14 +1,18 @@
-<h1>Edit Password</h1>
+<div class="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2 mt-2 md:mt-32">
+  <div class="bg-white px-6 py-6 rounded shadow-2xl text-grey w-full">
+    <h1 class="mb-8 text-3xl text-center font-header">Account Management</h1>
 
-<%= form_with model: current_user, url: edit_password_path do |f| %>
-  <%= render "shared/form_errors", f: f %>
-  <%= f.label :password %>
-  <%= f.password_field :password %> <br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %> <br>
-  <%= f.submit "Update Password" %>
-<% end %> <br>
+    <%= form_with model: current_user, url: edit_password_path do |f| %>
+      <%= render "shared/form_errors", f: f %>
+      <%= f.label :password, class: "text-xl" %>
+      <%= f.password_field :password, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
+      <%= f.label :password_confirmation, class: "text-xl" %>
+      <%= f.password_field :password_confirmation, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
+      <%= f.submit "Update Password", class: "w-full text-center py-2 rounded bg-purple cursor-pointer text-white hover:bg-purple-dark mb-2" %>
+    <% end %>
 
-<div>
-  <%= link_to "Delete User", destroy_registration_path(current_user), method: :delete %>
+    <div>
+      <%= link_to "Delete User", destroy_registration_path(current_user), method: :delete, data: { confirm: "Are you sure?" }, class: "block w-full text-center py-2 rounded bg-red text-white hover:bg-red-dark cursor-pointer" %>
+    </div>
+  </div>
 </div>
