@@ -18,12 +18,5 @@ class Cocktail < ApplicationRecord
     end
   end
 
-
 end
 
-# def cocktail_ingredients_attributes=(cocktail_ingredients_attributes)
-#   cocktail_ingredients_attributes.values.each do |cocktail_ingredients_attribute|
-#     ingredient = Ingredient.find_or_create_by(name: cocktail_ingredients_attribute["ingredient_attributes"]["name"])
-#     self.cocktail_ingredients.find_or_initialize_by(amount: cocktail_ingredients_attribute["amount"], ingredient_id: ingredient.id, cocktail_id: self.id)
-#   end
-# end
