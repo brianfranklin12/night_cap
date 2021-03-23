@@ -31,3 +31,11 @@
 <% else %>
   <%= button_to 'Like', cocktail_likes_path(@cocktail), method: :post %>
 <% end %>
+
+<ul>
+  <% @cocktail.comments.each do |comment| %>
+    <li><%= comment.body %> - by <%= comment.user.username %> </li>
+  <% end %>
+</ul>
+
+<%= render partial: "comment_form", locals: { comment: @cocktail.comments.build, cocktail: @cocktail } %>

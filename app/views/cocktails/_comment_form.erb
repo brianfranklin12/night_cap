@@ -1,0 +1,5 @@
+<%= form_with model: comment do |f| %>
+  <%= f.hidden_field :cocktail_id, value: cocktail.id %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>

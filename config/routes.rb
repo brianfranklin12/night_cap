@@ -28,5 +28,7 @@ Rails.application.routes.draw do
 
   resources :ingredients
 
+  resources :comments
+
   root to: "cocktails#index"
 end
