@@ -30,5 +30,6 @@ Rails.application.routes.draw do
 
   resources :comments
 
-  root to: "cocktails#index"
+  root to: "sessions#new"
+
 end

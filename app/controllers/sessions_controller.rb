@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_logged_in, only: [:new]
+
   def new 
   end
 
@@ -34,7 +36,13 @@ class SessionsController < ApplicationController
   end
 end
 
-private 
+private
+
+def redirect_if_logged_in
+  if current_user
+    redirect_to cocktails_path
+  end
+end
 
 def auth 
   request.env['omniauth.auth']

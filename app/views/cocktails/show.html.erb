@@ -3,7 +3,7 @@
     <img src="/logo.svg" class="w-36 md:w-52 mb-6 md:mb-0">
     <div class="col-span-2">
       <h1 class="text-6xl md:text-8xl tracking-wider text-center font-header mb-4"><%= @cocktail.name %></h1>
-      <h3 class="text-3xl md:text-4xl tracking-wide text-center font-header mb-8">by <%= @cocktail.user.username %></h3>
+      <h3 class="text-3xl md:text-4xl tracking-wide text-center font-header mb-8">by <%= link_to @cocktail.user.username, user_cocktails_path(@cocktail.user) %></h3>
       <p class="mx-4 text-md md:text-xl text-center md:text-right"><%= @cocktail.description %></p>
     </div>
     <div class="text-center">
@@ -15,9 +15,11 @@
       </ul>
     </div>
     <div class="col-span-2 text-center">
-      <div class="mb-8">
-        <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "bg-yellow hover:bg-yellow-dark text-2xl text-grey-dark py-2 px-4 rounded-lg" %>
-      </div class="mb-8">
+      <% if @cocktail.user == current_user %>
+        <div class="mb-8">
+          <%= link_to "Edit Cocktail", edit_cocktail_path(@cocktail), class: "bg-yellow hover:bg-yellow-dark text-2xl text-grey-dark py-2 px-4 rounded-lg" %>
+        </div class="mb-8">
+      <% end %>
       <div>
         <%= link_to "Back to Cocktail Collection", cocktails_path, class: "bg-purple hover:bg-purple-dark text-2xl text-white py-2 px-4 rounded-lg" %>
       </div>
@@ -32,10 +34,9 @@
   <%= button_to 'Like', cocktail_likes_path(@cocktail), method: :post %>
 <% end %>
 
-<ul>
-  <% @cocktail.comments.each do |comment| %>
-    <li><%= comment.body %> - by <%= comment.user.username %> </li>
-  <% end %>
-</ul>
+<%# prints out every comment following the formatting of the comment partial %>
+<%= render @comments %>
 
+<%# Renders comment form partial for creating comments on specific cocktail by current user %>
 <%= render partial: "comment_form", locals: { comment: @cocktail.comments.build, cocktail: @cocktail } %>
+

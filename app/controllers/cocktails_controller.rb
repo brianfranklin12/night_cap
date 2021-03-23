@@ -1,14 +1,13 @@
 class CocktailsController < ApplicationController
   before_action :require_user_logged_in!
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+  before_action :can_edit?, only: [:edit, :update, :destroy]
 
   def index
     if params[:user_id]
-      @user = User.find(params[:user_id])
-      @cocktails = @user.cocktails
+      @cocktails = User.find(params[:user_id]).cocktails
     elsif params[:ingredient_id]
-      ingredient = Ingredient.find(params[:ingredient_id])
-      @cocktails = ingredient.cocktails
+      @cocktails = Ingredient.find(params[:ingredient_id]).cocktails
     else
       @cocktails = Cocktail.all 
     end
@@ -27,7 +26,7 @@ class CocktailsController < ApplicationController
     end
   end
 
-  def show 
+  def show
   end
 
   def edit
@@ -53,8 +52,18 @@ class CocktailsController < ApplicationController
   end
 
   def set_cocktail 
-    @cocktail = Cocktail.find(params[:id])
+    if Cocktail.find_by_id(params[:id])
+      @cocktail = Cocktail.find_by_id(params[:id])
+      @comments = @cocktail.comments
+    else
+      redirect_to cocktails_path, notice: "Cocktail couldn't be found"
+    end
   end
 
+  def can_edit?
+    if !(@cocktail.user == current_user)
+      redirect_to cocktails_path, notice: "You cannot edit a cocktail you didn't create"
+    end
+  end
 
 end

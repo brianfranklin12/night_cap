@@ -1,13 +1,9 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user = current_user
-    if @comment.save
-     flash[:notice] = "Comment saved."
-    else
-      flash[:notice] = "Something went wrong"
-    end
+    @comment = current_user.comments.build(comment_params)
+    @comment.cocktail_id = params[:cocktail_id]
+    @comment.save
     redirect_to cocktail_path(@comment.cocktail)
   end
 

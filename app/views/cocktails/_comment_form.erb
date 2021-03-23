@@ -1,5 +1,4 @@
-<%= form_with model: comment do |f| %>
-  <%= f.hidden_field :cocktail_id, value: cocktail.id %>
-  <%= f.text_area :body %>
-  <%= f.submit %>
+<%= form_with url: "/cocktails/#{cocktail.id}/comments" do |f| %>
+  <%= f.text_area :"comment[body]", class: "w-3/4 shadow-inner p-4 border-0 mb-4 rounded-lg focus:show-outline text-xl", placeholder: "Leave a comment here." %>
+  <%= f.submit "Comment", class: "w-3/4 text-center py-4 rounded bg-red text-white hover:bg-red-dark mb-4 cursor-pointer text-2xl tracking-wider" %>
 <% end %>
