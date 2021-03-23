@@ -23,8 +23,9 @@ Rails.application.routes.draw do
 
   resources :cocktails do
     resources :likes
+    resources :comments
   end
-  
+
   resources :ingredients
 
   root to: "cocktails#index"
