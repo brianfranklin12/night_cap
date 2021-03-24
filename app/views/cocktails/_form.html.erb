@@ -1,6 +1,7 @@
 <%= form_with model: cocktail do |f| %>
 
   <%# General coctail recipe info %>
+  <%= render "shared/form_errors", f: f %>
   <%= f.label :name, class: "text-lg" %>
   <%= f.text_field :name, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.label :style, class: "text-lg" %>
