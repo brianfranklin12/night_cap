@@ -10,7 +10,7 @@
       <h1 class="text-4xl md:text-6xl text-center tracking-wider font-header text-grey mt-8 mb-4">Ingredients:</h1>
       <ul class="mb-8 md:mb-0">
         <% @cocktail.cocktail_ingredients.each do |ingredient| %>
-          <li class="text-lg ml-6"> <%= ingredient.amount %> - <%= ingredient.ingredient.name %> </li>
+          <li class="text-lg ml-6"> <%= ingredient.amount %> - <%= link_to ingredient.ingredient.name, ingredient_cocktails_path(ingredient.ingredient) %> </li>
         <% end %>
       </ul>
     </div>
