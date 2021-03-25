@@ -3,7 +3,6 @@
     <h1 class="mb-8 text-3xl text-center font-header">Sign In</h1>
 
     <%= form_with url: signin_path do |f| %>
-      <%= render "shared/form_errors", f: f %>
       <%= f.label :email, class: "text-xl" %>
       <%= f.text_field :email, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
       <%= f.label :password, class: "text-xl" %>
