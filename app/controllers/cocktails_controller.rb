@@ -6,10 +6,10 @@ class CocktailsController < ApplicationController
   def index
     if params[:user_id]
       @cocktails = User.find(params[:user_id]).cocktails
-    elsif params[:ingredient_id]
-      @cocktails = Ingredient.find(params[:ingredient_id]).cocktails
+    elsif params[:search]
+      @cocktails = Cocktail.filtered(params[:search])
     else
-      @cocktails = Cocktail.all 
+      @cocktails = Cocktail.all
     end
   end
 
@@ -48,7 +48,7 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :style, :description, cocktail_ingredients_attributes: [:amount, :_destroy, :id, ingredient_attributes: [:name, :id]])
+    params.require(:cocktail).permit(:name, :style, :description, :search, cocktail_ingredients_attributes: [:amount, :_destroy, :id, ingredient_attributes: [:name, :id]])
   end
 
   def set_cocktail 
@@ -56,13 +56,13 @@ class CocktailsController < ApplicationController
       @cocktail = Cocktail.find_by_id(params[:id])
       @comments = @cocktail.comments
     else
-      redirect_to cocktails_path, notice: "Cocktail couldn't be found"
+      redirect_to cocktails_path, alert: "Cocktail couldn't be found"
     end
   end
 
   def can_edit?
     if !(@cocktail.user == current_user)
-      redirect_to cocktails_path, notice: "You cannot edit a cocktail you didn't create"
+      redirect_to cocktails_path, alert: "You cannot edit a cocktail you didn't create"
     end
   end
 
