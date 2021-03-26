@@ -4,4 +4,8 @@ class Ingredient < ApplicationRecord
 
   validates_presence_of :name
 
+  def self.find_by_search(search)
+    @ingredient = Ingredient.where('name LIKE ?', "%#{search}%").first
+  end
+
 end

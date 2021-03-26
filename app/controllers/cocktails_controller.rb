@@ -4,12 +4,14 @@ class CocktailsController < ApplicationController
   before_action :can_edit?, only: [:edit, :update, :destroy]
 
   def index
+    @cocktails = Cocktail.all
     if params[:user_id]
       @cocktails = User.find(params[:user_id]).cocktails
     elsif params[:search]
-      @cocktails = Cocktail.filtered(params[:search])
-    else
-      @cocktails = Cocktail.all
+        @cocktails = Cocktail.filtered(params[:search])
+        if @cocktails.empty? 
+          redirect_to cocktails_path, alert: "No cocktails found with that ingredient"
+        end
     end
   end
 

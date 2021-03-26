@@ -3,7 +3,7 @@ module CocktailsHelper
     if params[:user_id]
       "#{User.find(params[:user_id]).username}'s Cocktails"
     elsif params[:search]
-      "Cocktails with #{Ingredient.find_by_name(params[:search]).name}"
+      "Cocktails with #{Ingredient.find_by_search(params[:search]).name}"
     else
       "Cocktails Index"
     end

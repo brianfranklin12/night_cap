@@ -1,5 +1,5 @@
 class Cocktail < ApplicationRecord
-  scope :filtered, -> (search) { Cocktail.includes(:ingredients).where('ingredients.name LIKE ?', search).references(:ingredients)}
+  scope :filtered, -> (search) { Cocktail.includes(:ingredients).where('ingredients.name LIKE ?', "%#{search}%").references(:ingredients)}
 
   belongs_to :user
   has_many :cocktail_ingredients, dependent: :destroy
