@@ -1,0 +1,4 @@
+<%= form_with url: cocktails_path, method: :get do |f| %>
+  <%= f.text_field :search, placeholder: "search by ingredient..", class: "rounded px-2 text-grey text-sm lg:text-md" %>
+  <%= f.submit "Search", class: "px-2 text-sm lg:text-md text-center rounded bg-purple text-white cursor-pointer hover:bg-purple-dark"  %>
+<% end %>

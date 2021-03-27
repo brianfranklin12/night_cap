@@ -1,12 +1,5 @@
 <h1 class="font-header text-3xl md:text-6xl tracking-wider text-center mb-8 md:mb-16"><%= format_title %></h1>
 
-<% if !params[:user_id] %>
-  <%= form_with url: cocktails_path, method: :get do |f| %>
-    <%= f.text_field :search, placeholder: "search by ingredient.." %>
-    <%= f.submit "Search" %>
-  <% end %>
-<% end %>
-
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
 
   <%# renders the individual cocktail 'cards' from cocktails/_cocktail.html.erb %>
