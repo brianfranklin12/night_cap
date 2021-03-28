@@ -1,4 +1,5 @@
 <%= form_with url: "/cocktails/#{cocktail.id}/comments" do |f| %>
-  <%= f.text_area :"comment[body]", class: "w-full md:w-3/4 shadow-inner p-4 border-0 mb-4 rounded-lg focus:show-outline text-xl", placeholder: "Leave a comment here." %>
-  <%= f.submit "Comment", class: "w-full md:w-3/4 text-center py-4 rounded bg-red text-white hover:bg-red-dark mb-4 cursor-pointer text-2xl tracking-wider" %>
+  <%= f.text_area :"comment[body]", placeholder: "Leave a comment here.", class: "p-2 rounded w-full md:w-1/2 shadow-md my-4" %> <br>
+  <%= f.submit "Comment", class: "px-4 py-2 rounded bg-red hover:bg-red-dark text-white cursor-pointer" %>
 <% end %>
+
