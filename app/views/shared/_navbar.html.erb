@@ -12,6 +12,7 @@
       <% else %>
         <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "Create Cocktail", new_cocktail_path %></li>
         <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "My Cocktails", user_cocktails_path(current_user) %></li>
+        <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "My Account", edit_password_path(current_user) %></li>
         <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "Log Out", signout_path, method: :delete %></li>
         <%= render "shared/search" %>
       <% end %>
