@@ -57,16 +57,6 @@ ActiveRecord::Schema.define(version: 2021_03_23_003600) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.integer "recipe_id", null: false
-    t.integer "ingredient_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "amount"
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
-    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -82,6 +72,4 @@ ActiveRecord::Schema.define(version: 2021_03_23_003600) do
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "cocktails"
   add_foreign_key "likes", "users"
-  add_foreign_key "recipe_ingredients", "ingredients"
-  add_foreign_key "recipe_ingredients", "recipes"
 end

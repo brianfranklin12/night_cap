@@ -7,8 +7,8 @@
     
     <ul class="lg:flex font-header uppercase tracking-wider">
       <% if !current_user %>
-        <li class="pr-5 hover:text-gray-800"><%= link_to "Sign In", signin_path %></li>
-        <li class="pr-5 hover:text-gray-800"><%= link_to "Sign Up", signup_path %></li>
+        <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "Sign In", signin_path %></li>
+        <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "Sign Up", signup_path %></li>
       <% else %>
         <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "Create Cocktail", new_cocktail_path %></li>
         <li class="pr-5 hover:text-gray-800 text-sm lg:text-lg"><%= link_to "My Cocktails", user_cocktails_path(current_user) %></li>
