@@ -1,26 +1,26 @@
-# README
+# NIGHT CAP
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A cocktail collection app for users to add their custom cocktails, search by ingredient to find inspiration, or comment on another user's signature drinks.
 
-Things you may want to cover:
+## Installation
+Fork and Clone this repo. Once it is installed locally, run
+```bash
+rails db:migrate
+```
+after the migration is complete, run 
+```bash
+rails s
+```
+to boot up the rails server. Open your browers to localhost:3000 to get started!
 
-* Ruby version
+## Usage
+You can sign up on the site, or sign up using your existing twitter credentails.
+Once in, you will be greeted with a collection of user submitted cocktails.
+Add your own by using the "Create Cocktail" link in the navigation bar, or search by ingredient to filter the cocktail list
+Comment on your favorites, and enjoy!!
 
-* System dependencies
+## Contributing
+Please reach out to Brian Franklin at brian@brianfranklin.tech directly if you are interested in contributing to this project.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-test commit
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
