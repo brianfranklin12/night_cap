@@ -6,6 +6,12 @@ class Cocktail < ApplicationRecord
   has_many :ingredients, through: :cocktail_ingredients
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  enum style: {
+    shaken: "shaken",
+    stirred: "stirred",
+    built: "built"
+  }
   
   accepts_nested_attributes_for :cocktail_ingredients, allow_destroy: true
 

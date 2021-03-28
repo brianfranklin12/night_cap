@@ -5,7 +5,7 @@
   <%= f.label :name, class: "text-lg" %>
   <%= f.text_field :name, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.label :style, class: "text-lg" %>
-  <%= f.text_field :style, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
+  <%= f.select :style, options_for_select(Cocktail.styles), class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
   <%= f.label :description, class: "text-lg" %>
   <%= f.text_area :description, class: "block border border-grey-light w-full p-2 rounded mb-2" %> <br>
 
