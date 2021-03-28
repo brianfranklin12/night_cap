@@ -8,4 +8,14 @@ module CocktailsHelper
       "Cocktails Index"
     end
   end
+
+  # def choose_image
+  #   if cocktail.style == 0
+  #     "<%= image_tag '/logo.svg', class: "w-full mx-auto", alt: "rocks glass" %>"
+  #   elsif cocktail.style == 1
+  #     "<%= image_tag '/logo.svg', class: "w-full mx-auto", alt: "rocks glass" %>"
+  #   else
+  #     "<%= image_tag '/logo.svg', class: "w-full mx-auto", alt: "rocks glass" %>"
+  #   end
+  # end
 end
