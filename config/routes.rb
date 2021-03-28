@@ -5,13 +5,12 @@ Rails.application.routes.draw do
 
   get "/signin" => "sessions#new"
   post "/signin" => "sessions#create"
+  delete "/signout" => "sessions#destroy"
 
   get "/auth/twitter/callback" => 'sessions#create_with_twitter'
 
   get "/account" => "passwords#edit", as: :edit_password
   patch "/account" => "passwords#update"
-
-  delete "/signout" => "sessions#destroy"
   
   resources :users do 
     resources :cocktails, only: [:show, :index]
