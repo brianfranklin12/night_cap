@@ -9,13 +9,14 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path, notice: "Logged in successfully"
-    else
+    else  
       flash[:alert] = "Invalid email or password"
       render :new
     end
   end
 
   def create_with_twitter
+    binding.irb
     user = User.find_or_create_by(email: auth['info']['email']) do |u|
       u.username = auth['info']['nickname']
       u.password = SecureRandom.hex(8)
@@ -24,7 +25,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: "Logged in successfully with Twitter"
     else
-      flash[:alert] = "Erro with logging in with Twitter"
+      flash[:alert] = "Error with logging in with Twitter"
       render :new
     end
   end
