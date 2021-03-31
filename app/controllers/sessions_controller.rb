@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def create_with_twitter
-    binding.irb
     user = User.find_or_create_by(email: auth['info']['email']) do |u|
       u.username = auth['info']['nickname']
       u.password = SecureRandom.hex(8)
