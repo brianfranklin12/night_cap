@@ -20,7 +20,7 @@ Add your own by using the "Create Cocktail" link in the navigation bar, or searc
 Comment on your favorites, and enjoy!!
 
 ## Contributing
-Please reach out to Brian Franklin at brian@brianfranklin.tech directly if you are interested in contributing to this project.
+Please reach out to Brian Franklin at brian@brianfranklin.dev directly if you are interested in contributing to this project.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
